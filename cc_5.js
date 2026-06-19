@@ -34,3 +34,15 @@ function calculateBasePay(rate, hours){
         return (rate * hours);
     }
 }
+
+//function that calulates overtime pay
+let calculateOvertimePay = function(rate, hours){
+    let overtime = hours - 40;
+    if (overtime < 0){
+        return 0;
+    }else{
+        return (rate * overtime * 1.5);
+    }
+}
+
+//
