@@ -45,4 +45,6 @@ let calculateOvertimePay = function(rate, hours){
     }
 }
 
-//
+//function that calculates taxes by deducting a 15% tax.
+const TAXRATE = 0.15;
+const calculateTaxes = (grosspay) => grosspay*(1-TAXRATE);
