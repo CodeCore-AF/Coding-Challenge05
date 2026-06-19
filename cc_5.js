@@ -48,3 +48,18 @@ let calculateOvertimePay = function(rate, hours){
 //function that calculates taxes by deducting a 15% tax.
 const TAXRATE = 0.15;
 const calculateTaxes = (grosspay) => grosspay*(1-TAXRATE);
+
+//function that returns a payroll object from an employee object input.
+function processPayroll(employee){
+    let tempBasePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+    let tempOvertimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+    let tempGrossPay = tempBasePay + tempOvertimePay;
+    let tempAfterTaxes = calculateTaxes(tempGrossPay);
+    return {
+        name:employee.name,
+        basepay:tempBasePay,
+        overtimePay:tempOvertimePay,
+        grosspay:tempGrossPay,
+        netPay:tempAfterTaxes
+    }
+}
