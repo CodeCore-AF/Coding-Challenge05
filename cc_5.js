@@ -25,3 +25,12 @@ let employeesArray = [
         hourlyRate:20,
         hoursWorked:30
     }]
+
+//function that calculates Employee's base pay
+function calculateBasePay(rate, hours){
+    if (hours >= 40){
+        return (rate * 40);
+    }else{
+        return (rate * hours);
+    }
+}
