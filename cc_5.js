@@ -57,9 +57,19 @@ function processPayroll(employee){
     let tempAfterTaxes = calculateTaxes(tempGrossPay);
     return {
         name:employee.name,
-        basepay:tempBasePay,
-        overtimePay:tempOvertimePay,
-        grosspay:tempGrossPay,
-        netPay:tempAfterTaxes
+        basePay:tempBasePay.toFixed(2),
+        overtimePay:tempOvertimePay.toFixed(2),
+        grossPay:tempGrossPay.toFixed(2),
+        netPay:tempAfterTaxes.toFixed(2)
     }
+}
+
+//loop to process the payroll of each employee in the employee Array.
+for (employee2 of employeesArray){
+    let payrollObject = processPayroll(employee2);
+    console.log(`Processed payroll for ${payrollObject.name}:
+        base pay: $${payrollObject.basePay}
+        overtime pay: $${payrollObject.overtimePay}
+        gross pay: $${payrollObject.grossPay}
+        net pay: $${payrollObject.netPay}\n`);
 }
